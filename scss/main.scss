@@ -1,0 +1,13 @@
+// importation des fichiers partiels //
+@import "Base/normes",
+        "Base/polices";
+
+@import "Pages/accueil",
+        "Pages/confirmation",
+        "Pages/panier",
+        "Pages/produit";
+
+@import "Utils/mixins",
+        "Utils/variables";
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss"

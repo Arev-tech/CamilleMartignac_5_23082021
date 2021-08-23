@@ -1,0 +1,14 @@
+.container-panier{
+    margin: 60px 0;
+    &-couleur{
+        &:hover{
+            background-color: #F3E9F1;
+        }
+        &-choix{
+            margin: 20px;
+        }
+    }
+    &-card{
+        margin: 60px 10px;
+    }
+}

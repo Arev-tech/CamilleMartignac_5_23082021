@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orinoco - Accueil</title>
+    <meta name="description" content="Bienvenue sur Orinoco, votre site de e-commerce">
+    <meta name="Orinoco" content="Bienvenue sur Orinoco, votre site de e-commerce"/>
+    <meta name="keywords" content="Orinoco, camera, camera vintage, meuble, nounours"/>
+    <meta name="robots" content="index"/>
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/306f7312b3.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+	<div class="container-fluid">
+		<div class="row header">
+			<nav class="col navbar navbar-expand header-logo">
+				<img class="navbar-brand" src="../images/logo.png">
+				<ul class="navbar-nav header-nav">
+					<li class="nav-item header-nav-choix">
+						<a class="nav-link text-dark" href="../index.html">Accueil</a>
+					</li>
+					<li class="nav-item header-nav-choix">
+						<a class="nav-link text-dark" href="panier.html"><i class="fas fa-shopping-cart header-nav-icon text-dark"></i>Panier</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+    <div class="container">
+		<div class=row>
+			<div class="col text-center">
+				<h2 class="titre">Confirmation de votre commande</h2>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-md-6">
+				<h3 class="titre-sous-titre">Vos informations personnelles :</h3>
+				<form>
+					<div class="form-group">
+					  <label for="exampleInputName">Nom : *</label>
+					  <input required type="name" class="form-control" id="exampleInputName" aria-describedby="name" placeholder="Entrez votre nom">
+					</div>
+					<div class="form-group">
+					  <label for="exampleInputFirstName">Prénom : *</label>
+					  <input required type="name" class="form-control" id="exampleInputFirstName" placeholder="Prénom">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputTel">Téléphone portable : *</label>
+						<input required type="tel" class="form-control" id="exampleInputTel" placeholder="Numéro de téléphone">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail">Adresse e-mail : *</label>
+						<input required type="email" class="form-control" id="exampleInputEmail" placeholder="example@example.com">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<h3 class="titre-sous-titre">Vos informations de livraison :</h3>
+				<div class="form-group">
+					<label for="exampleInputAdress1">Adresse : *</label>
+					<input required type="text" class="form-control" id="exampleInputAdress1" placeholder="Entrez votre adresse">
+
+				</div>
+				<div class="form-group">
+					<label for="exampleInputCodePostal">Code postal : *</label>
+					<input required type="number" class="form-control" id="exampleInputCodePostal" placeholder="Entrez votre code postal">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputVille">Ville : *</label>
+					<input required type="number" class="form-control" id="exampleInputVille" placeholder="Entrez votre ville">
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col">
+					<button type="button" class="btn-confirmation btn btn-lg btn-outline-success">Success</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row footer">
+			<div class="col footer-services">
+				<h2>Services et Garanties</h2>
+				<a class="footer-services-text text-decoration-none" href="#" alt="lien vers le service-après-vente">Services Après-Ventes</a>
+				<a class="footer-services-text text-decoration-none" href="#" alt="lien vers les garanties">Garanties</a>
+				<a class="footer-services-text text-decoration-none" href="#" alt="lien vers les inforations de livraison">Livraison</a>
+			</div>
+			<div class="col footer-contact">
+				<h2>Nous contacter</h2>
+				<a href="https://www.instagram.com" ><i class="fab fa-instagram text-dark footer-contact-icon"></i></a>
+				<a href="https://www.facebook.com"><i class="fab fa-facebook-square text-dark footer-contact-icon"></i></a>
+				<a href="https://www.twitter.com"><i class="fab fa-twitter-square text-dark footer-contact-icon"></i></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
