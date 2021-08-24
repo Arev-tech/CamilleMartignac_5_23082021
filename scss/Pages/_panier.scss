@@ -12,3 +12,35 @@
         margin: 60px 10px;
     }
 }
+.breadcrumb>li+li:before {
+    content: "" !important
+}
+
+.breadcrumb {
+    padding: 0px;
+    color: #aaa !important;
+}
+
+.suivi{
+    background-color: white;
+    &  a{
+        color : rgb(92, 92, 92);
+    }
+    
+    &-nav{
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        &-text{
+            padding: 10px;
+        }
+    }
+}
+
+.breadcrumb-item{
+    padding-left: 0 !important;
+}
+.active-2 {
+    color: black !important;
+    font-weight: bold;
+}
