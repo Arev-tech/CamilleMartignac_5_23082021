@@ -101,10 +101,10 @@
                                     <option value="3">Marron foncé</option>
                                 </select>
                                 <h2>Quantité:</h2>
-                                <div class="btn-group btn-group mb-3" role="group" aria-label="Groupe de petits boutons">
-                                    <button type="button" aria-label="moins" class="btn btn-secondary">-</button>
-                                    <input class="text-center" placeholder="Quantité">
-                                    <button type="button" aria-label="plus" class="btn btn-secondary">+</button>
+                                <div class="btn-group btn-group mb-3 quantité" role="group" aria-label="Groupe de petits boutons">
+                                    <button type="button" aria-label="moins" class="btn btn-secondary quantité-btn" id="btn-moins">-</button>
+                                    <span class="text-center quantité-text" id="quantite">0</span>
+                                    <button type="button" aria-label="plus" class="btn btn-secondary quantité-btn" id="btn-plus">+</button>
                                 </div>
                             </div>
                             <div class="text">
@@ -141,5 +141,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
+        <script type="text/javascript" src="../script.js"></script>
+
     </body>
 </html>

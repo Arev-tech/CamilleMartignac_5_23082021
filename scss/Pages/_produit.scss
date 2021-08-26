@@ -9,3 +9,13 @@
 .card-header{
     background-color: #F3E9F1;
 }
+
+.quantité{
+    &-text{
+        width: 80px;
+        border:solid black 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
