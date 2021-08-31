@@ -41,16 +41,19 @@ html {
   margin: 60px 0;
 }
 
-.achats {
-  margin-bottom: 60px;
+.card {
+  width: 350px;
+  height: 300px;
+  margin: 15px;
+}
+.card:hover {
+  cursor: pointer;
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
-.article:hover {
-  transform: scale(1.05);
-}
-
-.img {
-  border-radius: 20px;
+.img-ours {
+  height: 250px;
 }
 
 .footer {
