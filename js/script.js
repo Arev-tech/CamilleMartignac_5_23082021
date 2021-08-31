@@ -4,17 +4,6 @@ fetch(url)
     .then((resp) => resp.json())
     .then(function(data){
         let array = data;
-        class Ours {
-            constructor(colors, id, name, price, imageUrl, description) {
-              this.colors = colors;
-              this.id = id;
-              this.name = name;
-              this.price = price;
-              this.imageUrl = imageUrl;
-              this.description = description;
-            }
-        
-        }
         let nombreDOurs = 1;
         let lengthOurs = data.length;
         let divOurs = '';
@@ -54,7 +43,7 @@ fetch(url)
 
         function creationDivOurs(n){
             let ours="ours";
-            divOurs += '<a class="card"';
+            divOurs += '<a class="card card-accueil"';
             divOurs += creationHREF(ours, n);
             divOurs += creationID(ours, n);
             divOurs += creationimgOurs(n);

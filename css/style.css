@@ -41,15 +41,17 @@ html {
   margin: 60px 0;
 }
 
-.card {
+.card-accueil {
   width: 350px;
   height: 300px;
   margin: 15px;
 }
-.card:hover {
+.card-accueil:hover {
   cursor: pointer;
   font-weight: bold;
-  transform: scale(1.1);
+  transform: scale(1.05);
+  text-decoration: none;
+  color: black;
 }
 
 .img-ours {

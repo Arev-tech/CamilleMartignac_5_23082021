@@ -23,13 +23,17 @@
     margin: 60px 0;
 }
 .card{
-    width: 350px;
-    height: 300px;
-    margin: 15px;
-    &:hover{
-        cursor: pointer;
-        font-weight: bold;
-        transform: scale(1.1);
+    &-accueil{
+        width: 350px;
+        height: 300px;
+        margin: 15px;
+        &:hover{
+            cursor: pointer;
+            font-weight: bold;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: black;
+        }
     }
 }
 .img{
