@@ -16,10 +16,23 @@ fetch(link)
             divImgProduit += '" class="img-ours">';
             return divImgProduit;
         }
-        function getId(monId){ 
-            console.log(id); 
-        } 
-        creationImgOurs(3);
-        document.getElementById("img-ours-produit").innerHTML = divImgProduit;
-        console.log(divImgProduit);
+        
+        function prix(data, n){
+            let prix = data[n].price;
+            prix = prix / 100;
+            prix += ',00€';
+            return prix;
+        }
+        function recuperationColors(data, n){
+            let a = 0;
+            let b = 0;
+            while (a <= lengthOurs){
+                while(b <= data[n].colors.length){
+
+                }
+                
+            } 
+        }
+        console.log(data[1].colors.length);
+        document.getElementById('prix').innerHTML = prix(data, 0);
     })
