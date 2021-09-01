@@ -23,16 +23,14 @@ fetch(link)
             prix += ',00€';
             return prix;
         }
+        
         function recuperationColors(data, n){
             let a = 0;
-            let b = 0;
-            while (a <= lengthOurs){
-                while(b <= data[n].colors.length){
-
-                }
-                
+            while (a <= data[n].colors.length){
+               creationOption();
+            a++;
             } 
         }
-        console.log(data[1].colors.length);
+        console.log(data[0].colors.length);
         document.getElementById('prix').innerHTML = prix(data, 0);
     })
