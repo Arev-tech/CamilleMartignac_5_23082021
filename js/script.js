@@ -25,7 +25,7 @@ fetch(url)
             id += '">';
             return id;
         }
-        function creationimgOurs(n){
+        function creationImgOurs(n){
             img = '<img src="';
             img += array[n].imageUrl;
             img += '" alt="';
@@ -34,7 +34,7 @@ fetch(url)
             return img;
         }
 
-        function creationnameOurs(n){
+        function creationNameOurs(n){
             nom = '<h2 class="card-title text-center">';
             nom += array[n].name;
             nom += '</h2>';
@@ -43,11 +43,11 @@ fetch(url)
 
         function creationDivOurs(n){
             let ours="ours";
-            divOurs += '<a class="card card-accueil"';
+            divOurs += '<a class="card card-accueil" onclick="getId(this.id)"';
             divOurs += creationHREF(ours, n);
             divOurs += creationID(ours, n);
-            divOurs += creationimgOurs(n);
-            divOurs += creationnameOurs(n);
+            divOurs += creationImgOurs(n);
+            divOurs += creationNameOurs(n);
             divOurs += '</a>';
         }
         function incrementationOurs(nombreDOurs,lengthOurs){
@@ -58,8 +58,6 @@ fetch(url)
                 n++;
             }
         }
-        
         incrementationOurs(nombreDOurs, lengthOurs);
         document.getElementById("row1").innerHTML = divOurs;
-
     })

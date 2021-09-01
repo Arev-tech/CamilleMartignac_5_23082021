@@ -8,7 +8,7 @@
         <meta name="keywords" content="Orinoco, camera, camera vintage, meuble, nounours"/>
         <meta name="robots" content="index"/>
 
-        <title>Orinoco - Ours en peluche</title>
+        <title>Orinoco - Gustav</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,16 +37,6 @@
 						<li class="nav-item">
 						  <a class="nav-link header-nav-choix" href="../index.html">Accueil</a>
 						</li>
-						<li class="nav-item">
-						  <a class="nav-link active header-nav-choix" href="produit.html">Ours en peluche</a>
-						</li>
-						<li class="nav-item">
-						  <a class="nav-link header-nav-choix" href="#">Caméras vintage</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link header-nav-choix" href="#">Meubles en bois</a>
-						</li>
-					    <li class="nav-item">
 							<a class="nav-link header-nav-choix" href="panier.html">Panier</a>
 						</li>
 					  </ul>
@@ -59,6 +49,40 @@
                 <div class="col-12 text-center">
                     <h1>Ours en peluche</h1>
                     <h2>Tous nos ours en peluche sont faits à la main en France ! <br> Ils sont donc unique. <br> C'est pourquoi le délai de livraison peut prendre jusqu'à une semaine ! </h2>
+                </div>
+            </div>
+        </div>
+        <div class="container container-panier">
+            <div class="row">
+                <div class="col-12 col-md-6 panier-card text-center" id="img-ours-3-produit">
+
+                </div>
+                <div class="col-12 col-md-6 panier-card text-center">
+                    <div class="card">
+                        <div class="card-header text-uppercase">
+                            <h2>Personnalisez votre ours en peluche</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title ">
+                                <select class="form-select" name="couleur-choix" id="couleur-choix">
+                                    <option value="">-- Choisir la couleur de l'ours en peluche --</option>
+                                    <option value="1">Blanc crème</option>
+                                    <option value="2">Caramel</option>
+                                    <option value="3">Marron foncé</option>
+                                </select>
+                                <h2>Quantité:</h2>
+                                <div class="btn-group btn-group mb-3 quantité" role="group" aria-label="Groupe de petits boutons">
+                                    <button type="button" aria-label="moins" class="btn btn-secondary quantité-btn" id="btn-moins">-</button>
+                                    <span class="text-center quantité-text" id="quantite">0</span>
+                                    <button type="button" aria-label="plus" class="btn btn-secondary quantité-btn" id="btn-plus">+</button>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h2>Prix unitaire: 39,99€</h2>
+                            </div>
+                            <a href="panier.html" class="btn btn-success">Ajouter au panier</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,7 +111,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
-        <script type="text/javascript" src="../js/script.js"></script>
-
+        <script type="text/javascript" src="../js/produit.js"></script>
     </body>
 </html>

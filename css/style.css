@@ -41,6 +41,13 @@ html {
   margin: 60px 0;
 }
 
+.row-accueil {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .card-accueil {
   width: 350px;
   height: 300px;
@@ -100,9 +107,6 @@ html {
   margin: 20px 0;
 }
 
-.container-panier {
-  margin: 60px 0;
-}
 .container-panier-couleur:hover {
   background-color: #F3E9F1;
 }
