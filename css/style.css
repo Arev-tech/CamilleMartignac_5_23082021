@@ -62,6 +62,7 @@ html {
 }
 
 .img-ours {
+  border-radius: 20px 20px 0 0;
   height: 250px;
 }
 
@@ -157,8 +158,32 @@ html {
   width: 65%;
 }
 
+.card {
+  border-radius: 20px;
+  background-color: burlywood;
+  border: solid 2px burlywood;
+}
 .card-header {
   background-color: #F3E9F1;
+}
+.card-quantite {
+  display: flex;
+  flex-direction: column;
+}
+.card-body {
+  border-radius: 0 0 20px 20px;
+}
+.card-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card-couleur {
+  width: fit-content;
+  margin: auto;
+}
+.card-img {
+  border-radius: 20px 20px 0 0;
 }
 
 .quantité-text {

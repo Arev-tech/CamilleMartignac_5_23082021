@@ -1,13 +1,36 @@
 .menu{
-
     width: 100%;
     &-panier{
     width: 65%;
     }
 }
 
-.card-header{
-    background-color: #F3E9F1;
+.card{
+    border-radius: 20px;
+    background-color: burlywood;
+    border: solid 2px burlywood;
+    &-header{
+        background-color: #F3E9F1;
+    }
+    &-quantite{
+    display: flex;
+    flex-direction: column;
+    }
+    &-body{
+        border-radius: 0 0 20px 20px;
+    }
+    &-text{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    &-couleur{
+        width: fit-content;
+        margin: auto;
+    }
+    &-img{
+        border-radius: 20px 20px 0 0;
+    }
 }
 
 .quantité{

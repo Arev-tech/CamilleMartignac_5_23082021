@@ -2,24 +2,21 @@ let url = 'http://localhost:3000/api/teddies';
 
 fetch(url)
     .then((resp) => resp.json())
+    .catch((error) => {
+        let container = document.querySelector(".container");
+        container.innerHTML = "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+    })
     .then(function(data){
         let array = data;
         let nombreDOurs = 1;
         let lengthOurs = data.length;
         let divOurs = '';
 
-        function creationHREF(){
-            href = 'href="html/ours.html"';
+        function creationHREF(data, n){
+            href = 'href="html/ours.html?id=';
+            href += data[n]._id;
+            href += '">';
             return href;
-        }
-
-        function creationID(ours, n){
-            id = 'id="';
-            id += ours;
-            id += '-';
-            id += n;
-            id += '">';
-            return id;
         }
         function creationImgOurs(n){
             img = '<img src="';
@@ -38,10 +35,8 @@ fetch(url)
         }
 
         function creationDivOurs(n){
-            let ours="ours";
             divOurs += '<a class="card card-accueil" onclick="getId(this.id)"';
-            divOurs += creationHREF();
-            divOurs += creationID(ours, n);
+            divOurs += creationHREF(data, n);
             divOurs += creationImgOurs(n);
             divOurs += creationNameOurs(n);
             divOurs += '</a>';
@@ -62,20 +57,6 @@ fetch(url)
             divImgProduit += '" class="img-ours">';
             return divImgProduit;
         }
-        
-        function getId(id){
-            if(id == "id=ours-4>"){
-              let result = creationImgOurs(4);
-              document.getElementById("img-ours-produit").innerHTML = result;
-              
-            }
-           else{
-             const elt = document.getElementById('test1');  
-              elt.innerHTML = id;
-           }
-        }
         incrementationOurs(nombreDOurs, lengthOurs);
         document.getElementById("row1").innerHTML = divOurs;
-        getId(id);
-        console.log(id);
     })
