@@ -9,6 +9,7 @@ let divQuantity = '';
 let prixFormate = '';
 let price = '';
 let quantity = 1;
+let submit = '';
 
 function getImage(data){
     image = '<img src="';
@@ -52,8 +53,13 @@ function getPrice(data, quantity){
     return price;
 }
 
+function getSubmit(){
+    submit += '<button type="button" class="btn btn-success">Ajouter au panier</button>';
+    return submit;
+}
+
 function cardProduct(data){
-    divImage = '<div class="col-12 panier-card text-center" id="carte-produit">';
+    divImage = '<div class="col-6 panier-card text-center" id="carte-produit">';
     divImage += '<div class="card">'
     divImage += getImage(data);
     divImage += '<div class="card-body"><div class="card-title text-center"><select class="card-couleur form-select" name="couleur-choix" id="couleur-choix">'
@@ -64,6 +70,7 @@ function cardProduct(data){
     divImage += btnQuantity(quantity);
     divImage += getPrice(data, quantity);
     divImage += '</div>'
+    divImage += getSubmit();
     divImage += '</div>';
     divImage += '</div>';
     divImage += '</div>';

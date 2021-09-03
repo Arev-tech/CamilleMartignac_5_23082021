@@ -11,7 +11,7 @@ fetch(url)
         let nombreDOurs = 1;
         let lengthOurs = data.length;
         let divOurs = '';
-
+        let titre = '';
         function creationHREF(data, n){
             href = 'href="html/ours.html?id=';
             href += data[n]._id;
@@ -26,20 +26,19 @@ fetch(url)
             img += '" class="img-ours">';
             return img;
         }
-
         function creationNameOurs(n){
             nom = '<h2 class="card-title text-center">';
             nom += array[n].name;
             nom += '</h2>';
             return nom;
         }
-
         function creationDivOurs(n){
             divOurs += '<a class="card card-accueil" onclick="getId(this.id)"';
             divOurs += creationHREF(data, n);
             divOurs += creationImgOurs(n);
             divOurs += creationNameOurs(n);
             divOurs += '</a>';
+            divOurs += '</div>';
         }
         function incrementationOurs(nombreDOurs,lengthOurs){
             let n = 0;
@@ -57,6 +56,11 @@ fetch(url)
             divImgProduit += '" class="img-ours">';
             return divImgProduit;
         }
+        function getTitre(){
+            titre += '<h1 class="text-center">Ours en peluche</h1><h2 class="text-center">Sélectionnez le modèle qui vous intéresse : </h2>';
+            return titre;
+        }
         incrementationOurs(nombreDOurs, lengthOurs);
-        document.getElementById("row1").innerHTML = divOurs;
+        document.getElementById("row-hero").innerHTML = getTitre();
+        document.getElementById("row1").innerHTML = divOurs;  
     })
