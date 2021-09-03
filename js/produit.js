@@ -8,6 +8,7 @@ let colors = '';
 let divQuantity = '';
 let prixFormate = '';
 let price = '';
+let quantity = 1;
 
 function getImage(data){
     image = '<img src="';
@@ -32,20 +33,21 @@ function getColors(data){
     return colors;
 }
 
-function btnQuantity(){
-    divQuantity = '<div><h2>Quantité:</h2><div class="btn-group btn-group mb-3 quantité" role="group" aria-label="Groupe de petits boutons"><button type="button" aria-label="moins" class="btn btn-secondary quantité-btn" id="btn-moins">-</button><span class="text-center quantité-text" id="quantite">0</span><button type="button" aria-label="plus" class="btn btn-secondary quantité-btn" id="btn-plus">+</button></div></div>';
+function btnQuantity(quantity){
+    divQuantity = '<div><h2>Quantité:</h2><div class="btn-group btn-group mb-3 quantite" role="group" aria-label="Groupe de petits boutons"><button type="button" aria-label="moins" class="btn btn-secondary quantité-btn" id="btn-moins">-</button><span class="text-center quantité-text" id="quantite">'
+    divQuantity += quantity;
+    divQuantity += '</span><button type="button" aria-label="plus" class="btn btn-secondary quantité-btn" id="btn-plus">+</button></div></div>';
     return divQuantity;
 }
-function formatPrice(data){
-    prixFormate = data.price / 100;
+function formatPrice(data, quantity){
+    prixFormate = (data.price / 100) * quantity;
     prixFormate += ',00 €';
-    console.log(prixFormate);
     return prixFormate;
 }
 
-function getPrice(data){
-    price = '<div class="" id="prix"><h2>Prix : <h2>'
-    price += formatPrice(data);
+function getPrice(data, quantity){
+    price = '<div class="" id="prix"><h2>Prix Total TTC : <h2>'
+    price += formatPrice(data,quantity);
     price += '</div>';
     return price;
 }
@@ -59,8 +61,8 @@ function cardProduct(data){
     divImage += '</select>';
     divImage += '</div>';
     divImage += '<div class="card-text">'
-    divImage += btnQuantity();
-    divImage += getPrice(data);
+    divImage += btnQuantity(quantity);
+    divImage += getPrice(data, quantity);
     divImage += '</div>'
     divImage += '</div>';
     divImage += '</div>';
@@ -72,4 +74,20 @@ fetch(link)
     .then((resp) => resp.json())
     .then(function(data){
         document.getElementById("row2").innerHTML = cardProduct(data);
+        document.getElementById("btn-moins").addEventListener("click", function(){
+            --quantity;
+            if (quantity < 0){
+                quantity = 0;
+            }
+        document.getElementById("prix").innerHTML = getPrice(data, quantity);
+        document.getElementById("quantite").innerHTML = quantity;
+        })
+        document.getElementById("btn-plus").addEventListener("click", function(){
+            ++quantity;
+            if (quantity > 5){
+                quantity = 5;
+            }
+        document.getElementById("prix").innerHTML = getPrice(data, quantity);
+        document.getElementById("quantite").innerHTML = quantity;
+        });
     })
