@@ -49,12 +49,12 @@ function formatPrice(data, quantity){
 function getPrice(data, quantity){
     price = '<div class="" id="prix"><h2>Prix Total TTC : <h2>'
     price += formatPrice(data,quantity);
-    price += '</div>';
+    price += '</h2></h2></div>';
     return price;
 }
 
 function getSubmit(){
-    submit += '<button type="button" class="btn btn-success">Ajouter au panier</button>';
+    submit += '<button type="button" class="btn btn-success" id="submit">Ajouter au panier</button>';
     return submit;
 }
 
@@ -96,5 +96,46 @@ fetch(link)
             }
         document.getElementById("prix").innerHTML = getPrice(data, quantity);
         document.getElementById("quantite").innerHTML = quantity;
-        });
+    
+    });
+        //----- Récupération des valeurs du formulaire -----//
+    document.getElementById("submit").addEventListener("click", function(){
+        let optionProduit = {
+            nomProduit: data.name,
+            idProduit: data._id,
+            quantiteProduit: quantity,
+            prixProduit: prixFormate,
+        };
+        //--------------- Local Storage -----------------//
+        //---------- Stocker la récupération des valeurs des produits ------//
+
+        let product = JSON.parse(localStorage.getItem("produit"));
+
+        function popupConfirmation(){
+            if(window.confirm(`${quantity} ours en peluche ${data.name} a/ont bien été ajouté au panier
+            Pour consultez le panier cliquez sur OK ou pour revenir à l'accueil cliquez sur ANNULER`)){
+                window.location.href="panier.html"
+            }
+            else{
+                window.location.href="../index.html"
+            }
+            console.log(iefr);
+        }
+        //----- Vérification si le local storage existe ---------//
+        //------ Si il existe ------//
+        if(product){
+            product.push(optionProduit);
+            localStorage.setItem("produit",JSON.stringify(product));
+            console.log(product);
+            popupConfirmation();
+        }
+        //----- Si il n'existe pas -------//
+        else{
+            product = [];
+            product.push(optionProduit);
+            localStorage.setItem("produit",JSON.stringify(product));
+            popupConfirmation();
+        }
+
+    })
     })
