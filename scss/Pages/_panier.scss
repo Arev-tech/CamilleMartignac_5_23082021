@@ -43,3 +43,14 @@
     color: black !important;
     font-weight: bold;
 }
+.card-panier{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btn-supp{
+    margin: 0;
+    padding: 0;
+    border: none;
+}

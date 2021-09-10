@@ -39,15 +39,6 @@
 						  		<a class="nav-link header-nav-choix" href="../index.html">Accueil</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link header-nav-choix" href="produit.html">Ours en peluche</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link header-nav-choix" href="#">Caméras vintage</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link header-nav-choix" href="#">Meubles en bois</a>
-							</li>
-							<li class="nav-item">
 								<a class="nav-link active header-nav-choix" href="panier.html">Panier</a>
 							</li>
 					  	</ul>
@@ -71,30 +62,14 @@
 					</nav>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-6">
-					<h3 class="titre-sous-titre">Mon Panier</h3>
-					<div class="card">
-						<div class="prix" id="prix-article"></div>
-						<div class="article" id="titre-article"></div>
-						<div class="quantité" id="quantité-article"></div>
-					</div>
-					<h3 id="sous-total-panier">Sous-total: </h3>
-				</div>
-				<div class="col-12 col-md-6">
-					<h3 class="titre-sous-titre">Total</h3>
-					<div class="card">
-						<div class="sous-total" id="sous-total-total"><h3> Sous-total: </h3></div>
-						<div class="Livraison">
-							<select class="form-select" name="livraison-choix" id="livraison-choix">
-								<option value="">--Choisir une option de livraison--</option>
-								<option value="1">Livraison Express - 24h - 7,99€</option>
-								<option value="2">Livraison Rapide - 3 Jours ouvrés - 4,99€</option>
-								<option value="3">Livraison Classique - 5 Jours ouvrés - Offerte</option>
-							</select>
-						</div>
-						<a href="confirmation.html" class="text-center btn btn-panier btn-lg btn-success">Passer la commande</a>
-					</div>
+			<div class="row rowPanier" id="panierLigne">
+				<h3 class="titre-sous-titre">Mon Panier</h3>
+				<div class="card card-panier">
+					<div class="text-center" id="panierVide"></div>
+					<div class="article" id="titre-article"></div>
+					<div class="quantité" id="quantité-article"></div>
+					<div class="prix" id="prix-article"></div>
+					<div class="supprimer-article" id="supprimerArticle">  </div>
 				</div>
 			</div>
 		</div>
