@@ -112,21 +112,19 @@ fetch(link)
         let product = JSON.parse(localStorage.getItem("produit"));
 
         function popupConfirmation(){
-            if(window.confirm(`${quantity} ours en peluche ${data.name} a/ont bien été ajouté au panier
+            if(window.confirm(`${quantity} ${data.name} ont bien été ajouté au panier
             Pour consultez le panier cliquez sur OK ou pour revenir à l'accueil cliquez sur ANNULER`)){
                 window.location.href="panier.html"
             }
             else{
                 window.location.href="../index.html"
             }
-            console.log(iefr);
         }
         //----- Vérification si le local storage existe ---------//
         //------ Si il existe ------//
         if(product){
             product.push(optionProduit);
             localStorage.setItem("produit",JSON.stringify(product));
-            console.log(product);
             popupConfirmation();
         }
         //----- Si il n'existe pas -------//

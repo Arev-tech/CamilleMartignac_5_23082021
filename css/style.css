@@ -168,6 +168,24 @@ html {
   border: none;
 }
 
+.formulaire {
+  border: 2px burlywood solid;
+  background-color: burlywood;
+  border-radius: 20px;
+}
+.formulaire-champs {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+.formulaire-champs-label {
+  font-weight: bold;
+}
+.formulaire-btn {
+  margin: 20px auto;
+}
+
 .menu {
   width: 100%;
 }

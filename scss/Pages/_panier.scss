@@ -54,3 +54,26 @@
     padding: 0;
     border: none;
 }
+
+//--------- formulaire ------//
+.formulaire{
+    border: 2px burlywood solid;
+    background-color: burlywood;
+    border-radius: 20px;
+
+    &-champs{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin: auto;
+
+        &-label{
+            font-weight: bold;
+        }
+    }
+
+    &-btn{
+        margin: 20px auto;
+    }
+    
+}

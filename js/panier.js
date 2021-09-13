@@ -84,3 +84,95 @@ else{
         window.location.href = "panier.html";
     });
 }
+
+//----- formulaire commande -------//
+
+const afficherFormulaireHtml = ()=>{
+    const structureFormulaire = '<div class="col-12 mt-3 formulaire"><h2 class="formulaire-titre">Remplissez le formulaire de commande</h2><form class="formulaire-champs"><label class="formulaire-champs-label" for="firstName">Prénom :</label><input class="formulaire-champs-entry text-center" type="text" id="firstName" name="prenom" required><label class="formulaire-champs-label" for="lastName">Nom :</label><input class="formulaire-champs-entry text-center" type="text" id="lastName" name="nom" required><label class="formulaire-champs-label" for="email">Email : </label><input class="formulaire-champs-entry text-center" type="email" id="email" name="email" required><label class="formulaire-champs-label text-center" for="address">Adresse : </label><textarea class="formulaire-champs-entry text-center" type="text" id="address" required></textarea><label class="formulaire-champs-label" for="city">Ville : </label><input class="formulaire-champs-entry text-center" type="text" id="city" name="ville" required><button class="btn btn-success formulaire-btn" id="Envoieformulaire" type="submit" name="envoyerFormulaire">Confirmation de la commande</button></form></div>';
+    document.getElementById("formulaireCommande").innerHTML= structureFormulaire;
+
+}
+//--- affichage du formulaire-------//
+afficherFormulaireHtml();
+//------------addEventListener btn confirmer-------------//
+const btnEnvoieFormulaire = document.getElementById("Envoieformulaire");
+
+btnEnvoieFormulaire.addEventListener("click", (e)=>{
+    e.preventDefault();
+    //--------- Stocker la récupération des valeurs du formulaire dans le localStorage-----------//
+    //----------Créer un objet client-------//
+    let formulaireClient = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value
+    }
+
+    //-------- gestion validation formulaire----------//
+    //------ controle prenom---//
+    const lePrenom = formulaireClient.firstName;
+    const leNom = formulaireClient.lastName;
+    const lEmail = formulaireClient.email;
+    const lAdress = formulaireClient.address;
+    const laVille = formulaireClient.city;
+
+    function laVilleControl(){
+        if ((/^[A-Za-zéèàùûêâôë]{3,20}$/.test(laVille))){
+            let client = JSON.parse(localStorage.getItem("client")); 
+            client = [];
+            client.push(formulaireClient);
+            localStorage.setItem("client",JSON.stringify(client));
+        }
+        else{
+            alert("Le Champ Ville a été mal rempli");
+        };
+    }
+    function lAdressControl(){
+        if ((/^[A-Za-z0-9]{5-50}$/.test(leNom))){
+            laVilleControl();
+        }
+        else{
+            alert("Le Champ Adresse a été mal rempli");
+        };
+    }
+    function lEmailControl(){
+        if ((/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(lEmail))){
+            lAdressControl();
+           }
+        else{
+            alert("Le Champ Email a été mal rempli");
+        };
+    }
+    function nomControl(){
+        if ((/^[A-Za-zéèàùûêâôë]{3,20}$/.test(leNom))){
+         lEmailControl();
+        }
+        else{
+            alert("Le Champ Nom a été mal rempli");
+        };
+    }
+    function prenomControl(){
+        if ((/^[A-Za-zéèàùûêâôë]{3,20}$/.test(lePrenom))){
+         nomControl();
+        }
+        else{
+            alert("Le Champ Prénom a été mal rempli");
+        };
+    }
+
+    prenomControl();
+      
+
+    //--------- Envoie des données vers le local Storage-------//
+    
+    
+    //----Regrouper les valeurs du formulaire et des produits-----------//
+    const aEnvoyer = {
+        maDonnee,
+        formulaireClient
+    }
+
+    //--------Envoie de l'objet vers le serveur----------//
+
+})
