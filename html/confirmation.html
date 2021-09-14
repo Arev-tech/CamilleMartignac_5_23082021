@@ -38,15 +38,6 @@
 					  <a class="nav-link header-nav-choix" href="../index.html">Accueil</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link header-nav-choix" href="produit.html">Ours en peluche</a>
-					</li>
-					<li class="nav-item">
-					  <a class="nav-link header-nav-choix" href="#">Caméras vintage</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link header-nav-choix" href="#">Meubles en bois</a>
-					</li>
-					<li class="nav-item">
 						<a class="nav-link" href="panier.html">Panier</a>
 					</li>
 				  </ul>
@@ -60,54 +51,8 @@
 				<h1 class="titre">Confirmation de votre commande</h1>
 			</div>
 		</div>
-		<div class="row suivi">
-			<div class="col text-center">
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb indigo first suivi-nav text-center">
-						<li class="breadcrumb-item font-weight-bold "><a class="text-uppercase text-decoration-none" href="produit.html"><span class="mr-md-3 mr-1 suivi-nav-text">Retour au produit</span></a><i class="fa fa-angle-double-right " aria-hidden="true"></i></li>
-						<li class="breadcrumb-item font-weight-bold"><a class="text-uppercase text-decoration-none" href="panier.html"><span class="mr-md-3 mr-1 suivi-nav-text">Votre panier</span></a><i class="fa fa-angle-double-right text-uppercase " aria-hidden="true"></i></li>
-						<li class="breadcrumb-item font-weight-bold"><a class="text-uppercase active-2 text-decoration-none" href="confirmation.html"><span class="mr-md-3 mr-1 suivi-nav-text">Confirmation de votre commande</span></a></li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-5">
-				<h3 class="titre-sous-titre">Vos informations personnelles :</h3>
-				<form action="../php/form.php" method="post">
-					<div class="form-group">
-					  	<label for="exampleInputName">Nom : *</label>
-					  	<input required autofocus name="user_name" type="text" class="form-control" id="exampleInputName" placeholder="Entrez votre nom">
-					</div>
-					<div class="form-group">
-					  	<label for="exampleInputFirstName">Prénom : *</label>
-					  	<input required name="user_firstname" type="text" class="form-control" id="exampleInputFirstName" placeholder="Prénom">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputTel">Téléphone portable : *</label>
-						<input required size="10" name="user_tel" type="tel" class="form-control" id="exampleInputTel" placeholder="Numéro de téléphone">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail">Adresse e-mail : *</label>
-						<input required name="user_email" type="email" class="form-control" id="exampleInputEmail" placeholder="example@example.com">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputAdress1">Adresse : *</label>
-						<input required name="user_adress" type="text" class="form-control" id="exampleInputAdress1" placeholder="Entrez votre adresse">
-					</div>
-					<div class="form-group col-md-4">
-						<label for="exampleInputVille">Ville : *</label>
-						<input required name="user_ville" type="text" class="form-control" id="exampleInputVille" placeholder="Entrez votre ville">
-					</div>
-					<div class="form-group col-md-6">
-						<label for="exampleInputCodePostal">Code postal : *</label>
-						<input required name="user_codepostal" type="text" class="form-control" id="exampleInputCodePostal" placeholder="Entrez votre code postal">
-					</div>
-					<div class="row mb-md-5">
-						<div class="col"> <button type="button" aria-label="confirmer la commande" class="btn btn-lg btn-success btn-block btn-confirmation">Confirmer la commande</button> </div>
-					</div>
-				</form>
-			</div>
+		<div class="row card" id="confirm">
+			
 		</div>
 	</div>
 	<div class="container-fluid">
@@ -135,5 +80,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+	<script src="../js/confirm.js"></script>
 </body>
 </html>
