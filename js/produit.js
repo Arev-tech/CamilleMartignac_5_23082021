@@ -11,6 +11,7 @@ let price = '';
 let quantity = 1;
 let submit = '';
 
+//---- créer la ligne de code de l'image de l'ours cliqué-------//
 function getImage(data) {
     image = '<img src="';
     image += data.imageUrl;
@@ -19,7 +20,7 @@ function getImage(data) {
     image += '"class ="card-img">';
     return image;
 }
-
+//-------- créer les <option> de couleurs------//
 function getColors(data) {
     let a = 0;
     while (a < data.colors.length) {
@@ -33,7 +34,7 @@ function getColors(data) {
     a++;
     return colors;
 }
-
+//----- création HTML btn quantity--------//
 function btnQuantity(quantity) {
     divQuantity = '<div><h2>Quantité:</h2><div class="btn-group btn-group mb-3 quantite" role="group" aria-label="Groupe de petits boutons"><button type="button" aria-label="moins" class="btn btn-secondary quantité-btn" id="btn-moins">-</button><span class="text-center quantité-text" id="quantite">'
     divQuantity += quantity;
@@ -41,11 +42,13 @@ function btnQuantity(quantity) {
     return divQuantity;
 }
 
+//------- mettre le prix dans le format XX plutot que XX00-----//
 function formatPrice(data, quantity) {
     prixFormate = (data.price / 100) * quantity;
     return prixFormate;
 }
 
+//---------- Création HTML du prix de chaque ours-------//
 function getPrice(data, quantity) {
     price = '<div class="" id="prix"><h2>Prix Total TTC : <h2>'
     price += formatPrice(data, quantity);
@@ -53,11 +56,13 @@ function getPrice(data, quantity) {
     return price;
 }
 
+//-----Création btn HTML ajouter au panier-------//
 function getSubmit() {
     submit += '<button type="button" class="btn btn-success" id="submit">Ajouter au panier</button>';
     return submit;
 }
 
+//--------assembler tous les éléments dans une div---------//
 function cardProduct(data) {
     divImage = '<div class="col-6 panier-card text-center" id="carte-produit">';
     divImage += '<div class="card">'
@@ -77,10 +82,12 @@ function cardProduct(data) {
     return divImage;
 }
 
+//--------- Récupérer les données du bon ours-------//
 fetch(link)
     .then((resp) => resp.json())
     .then(function(data) {
         document.getElementById("row2").innerHTML = cardProduct(data);
+        //------- intéraction avec le btn quantity----------//
         document.getElementById("btn-moins").addEventListener("click", function() {
             --quantity;
             if (quantity < 0) {

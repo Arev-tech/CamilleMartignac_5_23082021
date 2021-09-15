@@ -141,18 +141,19 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
     ) {
         alert("Veillez renseigner tous les champs !");
     } else {
-        e.preventDefault();        
+        e.preventDefault();
         //----Regrouper les valeurs du formulaire et des produits en JSON apres validation -----------//
         const produitsB = [''];
         a = 0;
-        function remplissageTabId(maDonnee, a, produitsB){
+
+        function remplissageTabId(maDonnee, a, produitsB) {
             while (maDonnee[a]) {
                 produitsB[a] = maDonnee[a].idProduit;
                 a++;
             }
             return produitsB;
         }
-        
+
         const order = {
             contact: formulaireClient,
             products: remplissageTabId(maDonnee, a, produitsB),
@@ -161,7 +162,9 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
         const options = {
             method: "POST",
             body: JSON.stringify(order),
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json"
+            },
         };
 
         fetch("http://localhost:3000/api/teddies/order", options)
@@ -171,11 +174,11 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
                 orderID = data.orderId;
                 localStorage.setItem("orderID", JSON.stringify(orderID));
                 window.location.href = "confirmation.html"
-            console.log(data.orderId);
+                console.log(data.orderId);
             })
             .catch((err) => {
-            alert("erreur:" ,err)
-        });
-        
-    }    
+                alert("erreur:", err)
+            });
+
+    }
 })
