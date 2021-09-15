@@ -1,9 +1,5 @@
 <h1>Projet 5 Construire un site e-commerce </h1>
-<h2>Compétences évaluées :</h2>
-Interagir avec un web service avec JavaScript</li>
-Créer un plan de test pour une application</li>
-Valider des données issues de sources externes</li>
-Gérer des événements JavaScript</li>
+
 <h2>Prérequis</h2>
 <li>Cloner ce repository : https://github.com/OpenClassrooms-Student-Center/JWDP5 et créer un dossier back-end</li>
 <li>Se placer dans le dossier back-end</li>
