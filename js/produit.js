@@ -117,7 +117,6 @@ fetch(link)
             //---------- Stocker la récupération des valeurs des produits ------//
 
             let product = JSON.parse(localStorage.getItem("produit"));
-
             function popupConfirmation() {
                 if (window.confirm(`${quantity} ${data.name} ont bien été ajouté au panier
             Pour consultez le panier cliquez sur OK ou pour revenir à l'accueil cliquez sur ANNULER`)) {
@@ -132,6 +131,7 @@ fetch(link)
                 product.push(optionProduit);
                 localStorage.setItem("produit", JSON.stringify(product));
                 popupConfirmation();
+                searchArticle();
             }
             //----- Si il n'existe pas -------//
             else {
