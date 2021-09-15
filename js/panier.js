@@ -14,6 +14,18 @@ if (maDonnee === null || maDonnee == 0) {
 }
 // ------ si il y a des articles dans le panier, on va recuperer les données qui nous intéresse dans le localstorage -----//
 else {
+    
+    //----- formulaire commande -------//
+
+    const afficherFormulaireHtml = () => {
+        const structureFormulaire = '<div class="col-12 mt-3 formulaire"><h2 class="formulaire-titre">Remplissez le formulaire de commande</h2><form class="formulaire-champs"><label class="formulaire-champs-label" for="firstName">Prénom :</label><input class="formulaire-champs-entry text-center" type="text" id="firstName" name="prenom" required><label class="formulaire-champs-label" for="lastName">Nom :</label><input class="formulaire-champs-entry text-center" type="text" id="lastName" name="nom" required><label class="formulaire-champs-label" for="email">Email : </label><input class="formulaire-champs-entry text-center" type="email" id="email" name="email" required><label class="formulaire-champs-label text-center" for="address" required>Adresse : </label><input class="formulaire-champs-entry text-center"type="text" id="address" required></input><label class="formulaire-champs-label" for="city">Ville : </label><input class="formulaire-champs-entry text-center" type="text" id="city" name="ville" required><button class="btn btn-success formulaire-btn" id="Envoieformulaire" type="submit" name="envoyerFormulaire">Confirmation de la commande</button></form></div>';
+        document.getElementById("formulaireCommande").innerHTML = structureFormulaire;
+
+    }
+
+    //--- affichage du formulaire HTML-------//
+    afficherFormulaireHtml();   
+    
     while (maDonnee[a]) {
         nameProduit += maDonnee[a].nomProduit;
         nameProduit += "<br>";
@@ -105,17 +117,6 @@ else {
         window.location.href = "panier.html";
     });
 }
-
-//----- formulaire commande -------//
-
-const afficherFormulaireHtml = () => {
-    const structureFormulaire = '<div class="col-12 mt-3 formulaire"><h2 class="formulaire-titre">Remplissez le formulaire de commande</h2><form class="formulaire-champs"><label class="formulaire-champs-label" for="firstName">Prénom :</label><input class="formulaire-champs-entry text-center" type="text" id="firstName" name="prenom" required><label class="formulaire-champs-label" for="lastName">Nom :</label><input class="formulaire-champs-entry text-center" type="text" id="lastName" name="nom" required><label class="formulaire-champs-label" for="email">Email : </label><input class="formulaire-champs-entry text-center" type="email" id="email" name="email" required><label class="formulaire-champs-label text-center" for="address" required>Adresse : </label><input class="formulaire-champs-entry text-center"type="text" id="address" required></input><label class="formulaire-champs-label" for="city">Ville : </label><input class="formulaire-champs-entry text-center" type="text" id="city" name="ville" required><button class="btn btn-success formulaire-btn" id="Envoieformulaire" type="submit" name="envoyerFormulaire">Confirmation de la commande</button></form></div>';
-    document.getElementById("formulaireCommande").innerHTML = structureFormulaire;
-
-}
-//--- affichage du formulaire HTML-------//
-afficherFormulaireHtml();
-
 //------------addEventListener btn confirmer-------------//
 const btnEnvoieFormulaire = document.getElementById("Envoieformulaire");
 
@@ -176,9 +177,11 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
                 window.location.href = "confirmation.html"
                 console.log(data.orderId);
             })
-            .catch((err) => {
-                alert("erreur:", err)
-            });
-
+            .catch(() => {
+                let container = document.querySelector(".container");
+                container.innerHTML = "Nous n'avons pas réussi à afficher votr page. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+            })
+    
+        localStorage.removeItem("produit");
     }
 })

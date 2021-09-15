@@ -143,3 +143,7 @@ fetch(link)
 
         })
     })
+    .catch(() => {
+        let container = document.querySelector(".container");
+        container.innerHTML = "Nous n'avons pas réussi à afficher votre page. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+    })

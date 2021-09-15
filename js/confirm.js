@@ -14,3 +14,4 @@ function implementeconfirm(orderPrice, orderReturn) {
 }
 //--------- insert du HTML---------//
 document.getElementById("confirm").innerHTML = implementeconfirm(orderPrice, orderReturn);
+localStorage.clear();

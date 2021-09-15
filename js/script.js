@@ -3,7 +3,7 @@ let url = 'http://localhost:3000/api/teddies';
 fetch(url)
     .then((resp) => resp.json())
     //----- si on a pas réussi à récupérer les données----//
-    .catch((error) => {
+    .catch(() => {
         let container = document.querySelector(".container");
         container.innerHTML = "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
     })
