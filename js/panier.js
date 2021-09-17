@@ -1,22 +1,24 @@
 let maDonnee = JSON.parse(localStorage.getItem("produit"));
 let nameProduit = '<h2>Articles</h2>';
-let quantité = '<h2>Quantité</h2>';
+let quantite = '<h2>Quantité</h2>';
 let prix = '<h2>Prix</h2>';
 let htmlSupprimer = '<button class="btn btn-supp btn-supprimer-article">Supprimer</button>';
 let btnSupp = '<h2>Modifier</h2>';
 let a = 0;
 let prixFinal = 0;
 
-// --------- si il n'y a pas d'articles dans le panier on affiche le message panier vide ------//
-if (maDonnee === null || maDonnee == 0) {
+function panierVide(){
     const paniervide = '<div><h2>Le panier est vide</h2></div>';
     document.getElementById("panierVide").innerHTML = paniervide;
+}
+// --------- si il n'y a pas d'articles dans le panier on affiche le message panier vide ------//
+if (maDonnee === null || maDonnee == 0) {
+    panierVide();
 }
 // ------ si il y a des articles dans le panier, on va recuperer les données qui nous intéresse dans le localstorage -----//
 else {
     
     //----- formulaire commande -------//
-
     const afficherFormulaireHtml = () => {
         const structureFormulaire = '<div class="col-12 mt-3 formulaire"><h2 class="formulaire-titre">Remplissez le formulaire de commande</h2><form class="formulaire-champs"><label class="formulaire-champs-label" for="firstName">Prénom :</label><input class="formulaire-champs-entry text-center" type="text" id="firstName" name="prenom" required><label class="formulaire-champs-label" for="lastName">Nom :</label><input class="formulaire-champs-entry text-center" type="text" id="lastName" name="nom" required><label class="formulaire-champs-label" for="email">Email : </label><input class="formulaire-champs-entry text-center" type="email" id="email" name="email" required><label class="formulaire-champs-label text-center" for="address" required>Adresse : </label><input class="formulaire-champs-entry text-center"type="text" id="address" required></input><label class="formulaire-champs-label" for="city">Ville : </label><input class="formulaire-champs-entry text-center" type="text" id="city" name="ville" required><button class="btn btn-success formulaire-btn" id="Envoieformulaire" type="submit" name="envoyerFormulaire">Confirmation de la commande</button></form></div>';
         document.getElementById("formulaireCommande").innerHTML = structureFormulaire;
@@ -24,17 +26,18 @@ else {
     }
 
     //--- affichage du formulaire HTML-------//
-    afficherFormulaireHtml();   
-    
+    afficherFormulaireHtml();
+    //--- affichage des données des ours sur le panier--------//
     while (maDonnee[a]) {
         nameProduit += maDonnee[a].nomProduit;
+        if( maDonnee[a])
         nameProduit += "<br>";
         a++;
     }
     a = 0;
     while (maDonnee[a]) {
-        quantité += maDonnee[a].quantiteProduit;
-        quantité += "<br>";
+        quantite += maDonnee[a].quantiteProduit;
+        quantite += "<br>";
         a++;
     }
     a = 0;
@@ -71,11 +74,12 @@ else {
 
     //------ implémentation du HTML avec les données récupérées du localStorage -----//
     document.getElementById("titre-article").innerHTML = nameProduit;
-    document.getElementById("quantité-article").innerHTML = quantité;
+    document.getElementById("quantité-article").innerHTML = quantite;
     document.getElementById("prix-article").innerHTML = prix;
     document.getElementById("supprimerArticle").innerHTML = btnSupp;
     document.getElementById("prixTotal").innerHTML = prixStructure(maDonnee, a);
-    //---Selection de tous les btn supprimer ----//
+    
+    //--- Selection de tous les btn supprimer ----//
     let btn_Supprimer = document.querySelectorAll(".btn-supprimer-article");
 
     for (let l = 0; l < btn_Supprimer.length; l++) {
@@ -167,19 +171,24 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
                 "Content-Type": "application/json"
             },
         };
-
+        function getOrderId(){
+            let orderID = '';
+            orderID = data.orderId;
+            localStorage.setItem("orderID", JSON.stringify(orderID));
+        }
+        function error(){
+            let container = document.querySelector(".container");
+            container.innerHTML = "Nous n'avons pas réussi à afficher votr page. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+        }
         fetch("http://localhost:3000/api/teddies/order", options)
             .then((response) => response.json())
             .then((data) => {
-                let orderID = '';
-                orderID = data.orderId;
-                localStorage.setItem("orderID", JSON.stringify(orderID));
+                getOrderId();
                 window.location.href = "confirmation.html"
                 console.log(data.orderId);
             })
             .catch(() => {
-                let container = document.querySelector(".container");
-                container.innerHTML = "Nous n'avons pas réussi à afficher votr page. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
+                error();
             })
     
         localStorage.removeItem("produit");

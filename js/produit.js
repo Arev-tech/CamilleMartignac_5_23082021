@@ -115,8 +115,7 @@ fetch(link)
             };
             //--------------- Local Storage -----------------//
             //---------- Stocker la récupération des valeurs des produits ------//
-
-            let product = JSON.parse(localStorage.getItem("produit"));
+            let product = JSON.parse(localStorage.getItem('produit'));
             function popupConfirmation() {
                 if (window.confirm(`${quantity} ${data.name} ont bien été ajouté au panier
             Pour consultez le panier cliquez sur OK ou pour revenir à l'accueil cliquez sur ANNULER`)) {
@@ -125,13 +124,40 @@ fetch(link)
                     window.location.href = "../index.html"
                 }
             }
+            function isPresent (optionProduit){
+                let produit = JSON.parse(localStorage.getItem('produit'));
+                let a = 0;
+                while(a < produit.length){
+                    if(optionProduit.idProduit == produit[a].idProduit){
+                        return true;
+                    }
+                    else{
+                        a++;
+                    }
+                }
+                return false;
+            }
             //----- Vérification si le local storage existe ---------//
             //------ Si il existe ------//
-            if (product) {
+            if (product != null) {
+                //------- si il y a déjà le nounours similaire dans le panier ---------//
+                if(isPresent(optionProduit) == true){
+                    let ProduitSame = product.filter( el => el.nomProduit == optionProduit.nomProduit);
+                    ProduitSame[0].quantiteProduit += optionProduit.quantiteProduit;
+                    ProduitSame[0].prixProduit += optionProduit.prixProduit;
+                    console.table(ProduitSame);
+                    product = product.filter( el => el.nomProduit !== optionProduit.nomProduit);
+                    product.push(ProduitSame[0]);
+                    console.table(product);
+                    localStorage.setItem("produit", JSON.stringify(product));
+                    popupConfirmation();
+                }
+                //----------- si il n'y a pas le nounours dans le panier encore -------//
+                else{
                 product.push(optionProduit);
                 localStorage.setItem("produit", JSON.stringify(product));
                 popupConfirmation();
-                searchArticle();
+                }
             }
             //----- Si il n'existe pas -------//
             else {
