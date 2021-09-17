@@ -171,7 +171,7 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
                 "Content-Type": "application/json"
             },
         };
-        function getOrderId(){
+        function getOrderId(data){
             let orderID = '';
             orderID = data.orderId;
             localStorage.setItem("orderID", JSON.stringify(orderID));
@@ -183,7 +183,7 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
         fetch("http://localhost:3000/api/teddies/order", options)
             .then((response) => response.json())
             .then((data) => {
-                getOrderId();
+                getOrderId(data);
                 window.location.href = "confirmation.html"
                 console.log(data.orderId);
             })
