@@ -7,7 +7,7 @@ let btnSupp = '<h2>Modifier</h2>';
 let a = 0;
 let prixFinal = 0;
 
-function panierVide(){
+function panierVide() {
     const paniervide = '<div><h2>Le panier est vide</h2></div>';
     document.getElementById("panierVide").innerHTML = paniervide;
 }
@@ -17,7 +17,7 @@ if (maDonnee === null || maDonnee == 0) {
 }
 // ------ si il y a des articles dans le panier, on va recuperer les données qui nous intéresse dans le localstorage -----//
 else {
-    
+
     //----- formulaire commande -------//
     const afficherFormulaireHtml = () => {
         const structureFormulaire = '<div class="col-12 mt-3 formulaire"><h2 class="formulaire-titre">Remplissez le formulaire de commande</h2><form class="formulaire-champs"><label class="formulaire-champs-label" for="firstName">Prénom :</label><input class="formulaire-champs-entry text-center" type="text" id="firstName" name="prenom" required><label class="formulaire-champs-label" for="lastName">Nom :</label><input class="formulaire-champs-entry text-center" type="text" id="lastName" name="nom" required><label class="formulaire-champs-label" for="email">Email : </label><input class="formulaire-champs-entry text-center" type="email" id="email" name="email" required><label class="formulaire-champs-label text-center" for="address" required>Adresse : </label><input class="formulaire-champs-entry text-center"type="text" id="address" required></input><label class="formulaire-champs-label" for="city">Ville : </label><input class="formulaire-champs-entry text-center" type="text" id="city" name="ville" required><button class="btn btn-success formulaire-btn" id="Envoieformulaire" type="submit" name="envoyerFormulaire">Confirmation de la commande</button></form></div>';
@@ -30,8 +30,8 @@ else {
     //--- affichage des données des ours sur le panier--------//
     while (maDonnee[a]) {
         nameProduit += maDonnee[a].nomProduit;
-        if( maDonnee[a])
-        nameProduit += "<br>";
+        if (maDonnee[a])
+            nameProduit += "<br>";
         a++;
     }
     a = 0;
@@ -78,7 +78,7 @@ else {
     document.getElementById("prix-article").innerHTML = prix;
     document.getElementById("supprimerArticle").innerHTML = btnSupp;
     document.getElementById("prixTotal").innerHTML = prixStructure(maDonnee, a);
-    
+
     //--- Selection de tous les btn supprimer ----//
     let btn_Supprimer = document.querySelectorAll(".btn-supprimer-article");
 
@@ -171,12 +171,14 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
                 "Content-Type": "application/json"
             },
         };
-        function getOrderId(data){
+
+        function getOrderId(data) {
             let orderID = '';
             orderID = data.orderId;
             localStorage.setItem("orderID", JSON.stringify(orderID));
         }
-        function error(){
+
+        function error() {
             let container = document.querySelector(".container");
             container.innerHTML = "Nous n'avons pas réussi à afficher votr page. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
         }
@@ -190,7 +192,7 @@ btnEnvoieFormulaire.addEventListener("click", (e) => {
             .catch(() => {
                 error();
             })
-    
+
         localStorage.removeItem("produit");
     }
 })
