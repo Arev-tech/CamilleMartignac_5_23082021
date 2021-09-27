@@ -50,8 +50,6 @@ html {
 .row-produit {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 0;
 }
 
 .card-accueil {
@@ -192,9 +190,8 @@ html {
   width: 65%;
 }
 
-.text-center {
-  width: auto;
-  margin: auto;
+.panier-card {
+  width: 100%;
 }
 
 .card {
