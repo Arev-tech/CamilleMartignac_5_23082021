@@ -5,8 +5,9 @@
     }
 }
 
-#carte-panier{
-    width : auto;
+.text-center{
+    width: auto;
+    margin: auto;
 }
 
 .card{
@@ -45,5 +46,6 @@
         align-items: center;
         justify-content: center;
         background-color: white;
+        height: 40px
     }
 }

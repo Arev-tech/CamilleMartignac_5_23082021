@@ -50,6 +50,8 @@ html {
 .row-produit {
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin: 0;
 }
 
 .card-accueil {
@@ -118,9 +120,6 @@ html {
 }
 .container-panier-couleur-choix {
   margin: 20px;
-}
-.container-panier-card {
-  margin: auto;
 }
 
 .breadcrumb > li + li:before {
@@ -193,8 +192,9 @@ html {
   width: 65%;
 }
 
-#carte-panier {
+.text-center {
   width: auto;
+  margin: auto;
 }
 
 .card {
@@ -232,6 +232,7 @@ html {
   align-items: center;
   justify-content: center;
   background-color: white;
+  height: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */
