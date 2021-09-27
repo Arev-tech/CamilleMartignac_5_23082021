@@ -2,8 +2,8 @@ let maDonnee = JSON.parse(localStorage.getItem("produit"));
 let nameProduit = '<h2>Articles</h2>';
 let quantite = '<h2>Quantité</h2>';
 let prix = '<h2>Prix</h2>';
-let htmlSupprimer = '<button class="btn btn-supp btn-supprimer-article">Supprimer</button>';
-let btnSupp = '<h2>Modifier</h2>';
+let htmlSupprimer = '<button class="btn btn-supp btn-supprimer-article"><strong>Supprimer</strong></button>';
+let btnSupp = '<h2> <br></h2>';
 let a = 0;
 let prixFinal = 0;
 
@@ -100,7 +100,7 @@ else {
 
     //-- bouton pour vider le panier ---//
 
-    const btn_vider_panier_html = '<button class="btn btn-tout-supprimer-panier">Vider le panier</button>';
+    const btn_vider_panier_html = '<button class="btn btn-tout-supprimer-panier"><strong>Vider le panier</strong></button>';
 
     //--- insertion du bouton dans le html ---//
     document.getElementById("panierLigne").insertAdjacentHTML("beforeend", btn_vider_panier_html);

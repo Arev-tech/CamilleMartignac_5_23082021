@@ -120,7 +120,7 @@ html {
   margin: 20px;
 }
 .container-panier-card {
-  margin: 60px 10px;
+  margin: auto;
 }
 
 .breadcrumb > li + li:before {
@@ -191,6 +191,10 @@ html {
 }
 .menu-panier {
   width: 65%;
+}
+
+#carte-panier {
+  width: auto;
 }
 
 .card {

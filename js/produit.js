@@ -146,10 +146,8 @@ fetch(link)
                     let ProduitSame = product.filter(el => el.nomProduit == optionProduit.nomProduit);
                     ProduitSame[0].quantiteProduit += optionProduit.quantiteProduit;
                     ProduitSame[0].prixProduit += optionProduit.prixProduit;
-                    console.table(ProduitSame);
                     product = product.filter(el => el.nomProduit !== optionProduit.nomProduit);
                     product.push(ProduitSame[0]);
-                    console.table(product);
                     localStorage.setItem("produit", JSON.stringify(product));
                     popupConfirmation();
                 }
